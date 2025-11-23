@@ -1,17 +1,19 @@
 package org.example.bookmyshow.model;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import java.util.List;
 
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "movies")
-public class Movie {
-    @Id
-    private Long id;
+public class Movie extends BaseModel {
+
     private String name;
     private String language;
 
@@ -19,4 +21,16 @@ public class Movie {
     private double rating;
     private String category;
     private int duration;
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + this.getId() +
+                ", name='" + name + '\'' +
+                ", language='" + language + '\'' +
+                ", rating=" + rating +
+                ", category='" + category + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
 }
