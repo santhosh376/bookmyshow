@@ -5,10 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 public class Seat extends BaseModel {
     @Column(name = "seat_number")
@@ -19,6 +21,4 @@ public class Seat extends BaseModel {
     @Enumerated
     private SeatType seatType;
 
-    @ManyToOne
-    private Screen screen;
 }

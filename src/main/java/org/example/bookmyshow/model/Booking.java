@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Booking extends BaseModel {
 
-    @OneToMany(mappedBy = "booking")
+    @OneToMany
     private List<ShowSeat> showSeatList;
 
     private Date bookedAt;

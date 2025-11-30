@@ -4,12 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 public class Screen extends BaseModel{
     private String name;
@@ -17,7 +19,7 @@ public class Screen extends BaseModel{
     @ManyToOne
     private Theatre theatre;
 
-    @OneToMany(mappedBy = "screen")
-    private List<Seat> seat;
+    @OneToMany
+    private List<Seat> seats;
 
 }

@@ -42,11 +42,11 @@ public class BookingService {
            List<ShowSeat>showSeats = showSeatRepository.findAllById(showSeatIds);
 
            if(showSeats.size() != showSeatIds.size()){
-               throw new BadRequestException("Something bad with the request");
+               throw new BadRequestException();
            }
 
            for(ShowSeat showSeat : showSeats) {
-               if (!showSeat.getSeat().equals(ShowSeatStatus.AVAILABLE)) {
+               if (!showSeat.getShowSeatStatus().equals(ShowSeatStatus.AVAILABLE)) {
                    throw new BadRequestException("Seat not available");
                }
 
